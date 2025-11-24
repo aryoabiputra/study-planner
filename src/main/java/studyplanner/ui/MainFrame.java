@@ -17,6 +17,17 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        changeMainPanel(new BerandaPanel());
+    }
+    
+    public void changeMainPanel(javax.swing.JPanel panel) {
+        basedPanel.removeAll();
+        basedPanel.repaint();
+        basedPanel.revalidate();
+
+        basedPanel.add(panel);
+        basedPanel.repaint();
+        basedPanel.revalidate();
     }
 
     /**
@@ -36,6 +47,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         basedPanel = new javax.swing.JPanel();
+        mainPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -129,17 +141,22 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         basedPanel.setBackground(new java.awt.Color(21, 129, 191));
+        basedPanel.setLayout(new java.awt.CardLayout());
 
-        javax.swing.GroupLayout basedPanelLayout = new javax.swing.GroupLayout(basedPanel);
-        basedPanel.setLayout(basedPanelLayout);
-        basedPanelLayout.setHorizontalGroup(
-            basedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        mainPanel.setBackground(new java.awt.Color(21, 129, 191));
+
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 542, Short.MAX_VALUE)
         );
-        basedPanelLayout.setVerticalGroup(
-            basedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 490, Short.MAX_VALUE)
         );
+
+        basedPanel.add(mainPanel, "card2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -200,6 +217,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel sidePanel;
     // End of variables declaration//GEN-END:variables
 }
