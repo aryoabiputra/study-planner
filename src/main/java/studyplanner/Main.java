@@ -4,7 +4,7 @@
 
 package studyplanner;
 
-import studyplanner.ui.HomeFrame;
+import studyplanner.ui.MainFrame;
 
 /**
  *
@@ -15,6 +15,6 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello World!");
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new HomeFrame().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new MainFrame().setVisible(true));
     }
 }
