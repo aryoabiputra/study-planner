@@ -17,6 +17,10 @@ public class TugasCardPanel extends javax.swing.JPanel {
         initComponents();
     }
 
+    public void setJudulTugas(String judul) {
+        jCheckBox1.setText(judul);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,7 +32,11 @@ public class TugasCardPanel extends javax.swing.JPanel {
 
         jCheckBox1 = new javax.swing.JCheckBox();
 
+        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
+
+        jCheckBox1.setBackground(new java.awt.Color(204, 229, 207));
         jCheckBox1.setText("Projek Praktikum PBO");
+        jCheckBox1.setBorder(null);
         jCheckBox1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jCheckBox1.setIconTextGap(15);
 
@@ -36,7 +44,7 @@ public class TugasCardPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
+            .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -8,6 +8,9 @@ package studyplanner.ui;
  *
  * @author aryop
  */
+import studyplanner.dao.TugasDAO;
+import studyplanner.ui.TugasCardPanel;
+
 public class BerandaPanel extends javax.swing.JPanel {
 
     /**
@@ -15,6 +18,47 @@ public class BerandaPanel extends javax.swing.JPanel {
      */
     public BerandaPanel() {
         initComponents();
+        muatRingkasanDummy();
+        isiDummyDeadlineCards();
+    }
+
+    private void isiDummyDeadlineCards() {
+        // Hapus isi layout lama (yang hanya jLabel6)
+        deadlinePanel.removeAll();
+
+        // Pakai layout vertikal supaya card numpuk ke bawah
+        deadlinePanel.setLayout(new javax.swing.BoxLayout(deadlinePanel, javax.swing.BoxLayout.Y_AXIS));
+
+        // Judul "Mendekati Deadline" di atas
+        javax.swing.JLabel title = new javax.swing.JLabel("Mendekati Deadline");
+        title.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 16));
+        title.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 24, 8, 8));
+        title.setAlignmentX(LEFT_ALIGNMENT);
+        deadlinePanel.add(title);
+
+        // Tambah 3 card dummy
+        for (int i = 1; i <= 3; i++) {
+            TugasCardPanel card = new TugasCardPanel();
+            card.setJudulTugas("Dummy Tugas " + i + " - 2 hari lagi");
+            card.setAlignmentX(LEFT_ALIGNMENT);
+            deadlinePanel.add(card);
+        }
+
+        // Refresh tampilan
+        deadlinePanel.revalidate();
+        deadlinePanel.repaint();
+    }
+
+    private void muatRingkasanDummy() {
+        // Versi pakai database beneran:
+        int total = TugasDAO.countTotalTugas();
+        int mendekati = TugasDAO.countMendekatiDeadline(3); // 3 hari ke depan
+        int selesai = TugasDAO.countSelesai();
+
+        // Tampilkan ke label
+        totalTugasLabel.setText(String.valueOf(total));
+        deadlineLabel.setText(String.valueOf(mendekati));
+        selesaiLabel.setText(String.valueOf(selesai));
     }
 
     /**
@@ -46,13 +90,14 @@ public class BerandaPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(21, 129, 191));
 
+        jScrollPane2.setBorder(null);
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         panelUtama.setBackground(new java.awt.Color(21, 129, 191));
 
-        ringkasanPanel.setBackground(new java.awt.Color(255, 255, 255));
+        ringkasanPanel.setBackground(new java.awt.Color(61, 182, 177));
 
-        ringkasandalamPanel.setBackground(new java.awt.Color(204, 255, 255));
+        ringkasandalamPanel.setBackground(new java.awt.Color(204, 229, 207));
         ringkasandalamPanel.setLayout(new java.awt.GridLayout(2, 3));
 
         totalTugasLabel.setFont(new java.awt.Font("Segoe UI", 0, 50)); // NOI18N
@@ -110,7 +155,7 @@ public class BerandaPanel extends javax.swing.JPanel {
                 .addGap(55, 55, 55))
         );
 
-        deadlinePanel.setBackground(new java.awt.Color(255, 255, 255));
+        deadlinePanel.setBackground(new java.awt.Color(61, 182, 177));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel6.setText("Mendekati Deadline");
@@ -129,7 +174,7 @@ public class BerandaPanel extends javax.swing.JPanel {
             .addGroup(deadlinePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6)
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelUtamaLayout = new javax.swing.GroupLayout(panelUtama);
@@ -137,26 +182,28 @@ public class BerandaPanel extends javax.swing.JPanel {
         panelUtamaLayout.setHorizontalGroup(
             panelUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUtamaLayout.createSequentialGroup()
-                .addGroup(panelUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(deadlinePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ringkasanPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, 0))
+                .addGroup(panelUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(deadlinePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ringkasanPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 623, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         panelUtamaLayout.setVerticalGroup(
             panelUtamaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelUtamaLayout.createSequentialGroup()
                 .addComponent(ringkasanPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(deadlinePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(deadlinePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(panelUtama);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Beranda");
 
+        tambahBtn.setBackground(new java.awt.Color(255, 255, 255));
         tambahBtn.setText("Tambah");
+        tambahBtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jTextField1.setText("Tambah tugas baru");
 
@@ -165,9 +212,9 @@ public class BerandaPanel extends javax.swing.JPanel {
         searchPanelLayout.setHorizontalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(searchPanelLayout.createSequentialGroup()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(tambahBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(tambahBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
         );
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,14 +231,16 @@ public class BerandaPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2)
-                    .addComponent(searchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 18, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,8 +249,9 @@ public class BerandaPanel extends javax.swing.JPanel {
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11))
         );
     }// </editor-fold>//GEN-END:initComponents
 
