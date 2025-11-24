@@ -137,13 +137,13 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         basedPanel.setBackground(new java.awt.Color(21, 129, 191));
         basedPanel.setLayout(new java.awt.CardLayout());
 
-        mainPanel.setBackground(new java.awt.Color(21, 129, 191));
+        mainPanel.setBackground(new java.awt.Color(153, 255, 204));
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);

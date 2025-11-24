@@ -1,5 +1,13 @@
+studyplanner\database\DataBase.class
 studyplanner\ui\MainFrame$2.class
+studyplanner\dao\TugasDAO.class
+studyplanner\database\InitDatabase.class
+studyplanner\database\DatabaseMigration.class
+studyplanner\ui\MainFrame.class
+studyplanner\model\Matkul.class
+studyplanner\ui\TugasCardPanel.class
+studyplanner\model\Tugas.class
 studyplanner\Main.class
 studyplanner\ui\MainFrame$1.class
+studyplanner\dao\MatkulDAO.class
 studyplanner\ui\BerandaPanel.class
-studyplanner\ui\MainFrame.class
