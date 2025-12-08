@@ -9,6 +9,8 @@ package studyplanner.ui;
  * @author aryop
  */
 public class MainFrame extends javax.swing.JFrame {
+    //v1
+
     //tes
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainFrame.class.getName());
 
@@ -19,7 +21,7 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
         changeMainPanel(new BerandaPanel());
     }
-    
+
     public void changeMainPanel(javax.swing.JPanel panel) {
         basedPanel.removeAll();
         basedPanel.repaint();
@@ -40,41 +42,47 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         sidePanel = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        berandaBtn = new javax.swing.JButton();
+        kalenderBtn = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        resetBtn = new javax.swing.JButton();
         basedPanel = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/home.png"))); // NOI18N
-        jButton1.setText("Beranda");
-        jButton1.setBorder(null);
-        jButton1.setFocusPainted(false);
-        jButton1.setHideActionText(true);
-        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton1.setIconTextGap(10);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        berandaBtn.setBackground(new java.awt.Color(255, 255, 255));
+        berandaBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        berandaBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/home.png"))); // NOI18N
+        berandaBtn.setText("Beranda");
+        berandaBtn.setBorder(null);
+        berandaBtn.setFocusPainted(false);
+        berandaBtn.setHideActionText(true);
+        berandaBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        berandaBtn.setIconTextGap(10);
+        berandaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                berandaBtnActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/kalender.png"))); // NOI18N
-        jButton2.setText("Kalender Agenda");
-        jButton2.setBorder(null);
-        jButton2.setFocusPainted(false);
-        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton2.setIconTextGap(10);
-        jButton2.setPreferredSize(new java.awt.Dimension(74, 23));
+        kalenderBtn.setBackground(new java.awt.Color(255, 255, 255));
+        kalenderBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        kalenderBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/kalender.png"))); // NOI18N
+        kalenderBtn.setText("Kalender Agenda");
+        kalenderBtn.setBorder(null);
+        kalenderBtn.setFocusPainted(false);
+        kalenderBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        kalenderBtn.setIconTextGap(10);
+        kalenderBtn.setPreferredSize(new java.awt.Dimension(74, 23));
+        kalenderBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kalenderBtnActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -107,19 +115,31 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Rahma ");
 
+        resetBtn.setText("Reset");
+        resetBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout sidePanelLayout = new javax.swing.GroupLayout(sidePanel);
         sidePanel.setLayout(sidePanelLayout);
         sidePanelLayout.setHorizontalGroup(
             sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sidePanelLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(sidePanelLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(berandaBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(kalenderBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(sidePanelLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(resetBtn)))
                 .addGap(17, 17, 17))
         );
         sidePanelLayout.setVerticalGroup(
@@ -130,13 +150,15 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(33, 33, 33)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(berandaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(kalenderBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(resetBtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -176,13 +198,48 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void berandaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_berandaBtnActionPerformed
+        changeMainPanel(new BerandaPanel());        // TODO add your handling code here:
+    }//GEN-LAST:event_berandaBtnActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void kalenderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kalenderBtnActionPerformed
+        changeMainPanel(new KalenderPanel());   // TODO add your handling code here:
+    }//GEN-LAST:event_kalenderBtnActionPerformed
+
+    private void resetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetBtnActionPerformed
+
+        int konfirmasi = javax.swing.JOptionPane.showConfirmDialog(
+                this,
+                "Yakin ingin reset semua data tugas?\nTindakan ini tidak bisa dibatalkan.",
+                "Konfirmasi Reset",
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.WARNING_MESSAGE
+        );
+
+        if (konfirmasi != javax.swing.JOptionPane.YES_OPTION) {
+            return; // batal
+        }
+
+        // 1. Hapus semua tugas di database
+        studyplanner.dao.TugasDAO.deleteAll();
+
+        // 2. (opsional) reset juga matkul, dsb kalau kamu mau
+        // MatkulDAO.deleteAll();
+        // 3. Tampilkan ulang beranda (agar ringkasan & card kosong)
+        changeMainPanel(new BerandaPanel());
+
+        // 4. Info ke user
+        javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Data tugas berhasil di-reset.",
+                "Reset Berhasil",
+                javax.swing.JOptionPane.INFORMATION_MESSAGE
+        );        // TODO add your handling code here:
+    }//GEN-LAST:event_resetBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,13 +268,14 @@ public class MainFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel basedPanel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton berandaBtn;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton kalenderBtn;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JButton resetBtn;
     private javax.swing.JPanel sidePanel;
     // End of variables declaration//GEN-END:variables
 }

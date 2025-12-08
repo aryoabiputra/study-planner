@@ -19,32 +19,70 @@ public class BerandaPanel extends javax.swing.JPanel {
     public BerandaPanel() {
         initComponents();
         muatRingkasanDummy();
-        isiDummyDeadlineCards();
+//        isiDummyDeadlineCards();
+        isiDeadlineDariDatabase();
     }
 
-    private void isiDummyDeadlineCards() {
-        // Hapus isi layout lama (yang hanya jLabel6)
+    private void isiDeadlineDariDatabase() {
+        // bersihkan isi panel
         deadlinePanel.removeAll();
 
-        // Pakai layout vertikal supaya card numpuk ke bawah
+        // layout vertikal untuk card
         deadlinePanel.setLayout(new javax.swing.BoxLayout(deadlinePanel, javax.swing.BoxLayout.Y_AXIS));
 
-        // Judul "Mendekati Deadline" di atas
+        // judul
         javax.swing.JLabel title = new javax.swing.JLabel("Mendekati Deadline");
         title.setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 16));
         title.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 24, 8, 8));
         title.setAlignmentX(LEFT_ALIGNMENT);
         deadlinePanel.add(title);
 
-        // Tambah 3 card dummy
-        for (int i = 1; i <= 3; i++) {
-            TugasCardPanel card = new TugasCardPanel();
-            card.setJudulTugas("Dummy Tugas " + i + " - 2 hari lagi");
-            card.setAlignmentX(LEFT_ALIGNMENT);
-            deadlinePanel.add(card);
+        // ambil tugas yang mendekati deadline (misal 7 hari ke depan)
+        java.util.List<studyplanner.model.Tugas> daftarTugas = TugasDAO.getMendekatiDeadline(7);
+
+        if (daftarTugas.isEmpty()) {
+            javax.swing.JLabel kosong = new javax.swing.JLabel("Belum ada tugas yang mendekati deadline.");
+            kosong.setFont(new java.awt.Font("Arial", java.awt.Font.ITALIC, 12));
+            kosong.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 24, 8, 8));
+            kosong.setAlignmentX(LEFT_ALIGNMENT);
+            deadlinePanel.add(kosong);
+        } else {
+            java.time.LocalDate today = java.time.LocalDate.now();
+
+            for (studyplanner.model.Tugas t : daftarTugas) {
+                String deadlineStr = t.getDeadline();
+                if (deadlineStr == null || deadlineStr.isBlank()) {
+                    continue;
+                }
+
+                java.time.LocalDate dl;
+                try {
+                    dl = java.time.LocalDate.parse(deadlineStr); // format "yyyy-MM-dd"
+                } catch (Exception ex) {
+                    continue;
+                }
+
+                long days = java.time.temporal.ChronoUnit.DAYS.between(today, dl);
+                String infoHari;
+                if (days < 0) {
+                    infoHari = " (terlewat)";
+                } else if (days == 0) {
+                    infoHari = " (hari ini)";
+                } else if (days == 1) {
+                    infoHari = " (1 hari lagi)";
+                } else {
+                    infoHari = " (" + days + " hari lagi)";
+                }
+
+                // bikin card pakai judul tugas asli
+                TugasCardPanel card = new TugasCardPanel();
+                card.setJudulTugas(t.getJudul() + infoHari);
+                card.setAlignmentX(LEFT_ALIGNMENT);
+                deadlinePanel.add(card);
+            }
         }
 
-        // Refresh tampilan
+        // refresh tampilan
         deadlinePanel.revalidate();
         deadlinePanel.repaint();
     }
@@ -59,6 +97,11 @@ public class BerandaPanel extends javax.swing.JPanel {
         totalTugasLabel.setText(String.valueOf(total));
         deadlineLabel.setText(String.valueOf(mendekati));
         selesaiLabel.setText(String.valueOf(selesai));
+    }
+
+    public void refreshData() {
+        muatRingkasanDummy();     // ini sudah pakai DB
+        isiDeadlineDariDatabase(); // method yang tadi kita buat
     }
 
     /**

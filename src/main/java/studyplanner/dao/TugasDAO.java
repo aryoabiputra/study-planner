@@ -37,6 +37,18 @@ public class TugasDAO {
         return 0;
     }
 
+    public static void deleteAll() {
+        String sql = "DELETE FROM tugas";
+
+        try (Connection conn = DataBase.getConnection(); Statement st = conn.createStatement()) {
+
+            st.executeUpdate(sql);
+
+        } catch (SQLException e) {
+            System.out.println("Gagal deleteAll tugas: " + e.getMessage());
+        }
+    }
+
     public static int countMendekatiDeadline(int hariKeDepan) {
         String sql = """
         SELECT COUNT(*)
@@ -297,4 +309,5 @@ public class TugasDAO {
             System.out.println("Gagal delete tugas: " + e.getMessage());
         }
     }
+
 }
