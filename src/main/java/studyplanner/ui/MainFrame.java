@@ -45,7 +45,7 @@ public class MainFrame extends javax.swing.JFrame {
         berandaBtn = new javax.swing.JButton();
         kalenderBtn = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        daftarTugasBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         resetBtn = new javax.swing.JButton();
@@ -94,18 +94,18 @@ public class MainFrame extends javax.swing.JFrame {
         jButton3.setIconTextGap(10);
         jButton3.setPreferredSize(new java.awt.Dimension(74, 23));
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/daftar-tugas.png"))); // NOI18N
-        jButton4.setText("Daftar Tugas");
-        jButton4.setBorder(null);
-        jButton4.setFocusPainted(false);
-        jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton4.setIconTextGap(10);
-        jButton4.setPreferredSize(new java.awt.Dimension(74, 23));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        daftarTugasBtn.setBackground(new java.awt.Color(255, 255, 255));
+        daftarTugasBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        daftarTugasBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/daftar-tugas.png"))); // NOI18N
+        daftarTugasBtn.setText("Daftar Tugas");
+        daftarTugasBtn.setBorder(null);
+        daftarTugasBtn.setFocusPainted(false);
+        daftarTugasBtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        daftarTugasBtn.setIconTextGap(10);
+        daftarTugasBtn.setPreferredSize(new java.awt.Dimension(74, 23));
+        daftarTugasBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                daftarTugasBtnActionPerformed(evt);
             }
         });
 
@@ -115,6 +115,8 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Rahma ");
 
+        resetBtn.setBackground(new java.awt.Color(255, 51, 51));
+        resetBtn.setForeground(new java.awt.Color(255, 255, 255));
         resetBtn.setText("Reset");
         resetBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,19 +129,15 @@ public class MainFrame extends javax.swing.JFrame {
         sidePanelLayout.setHorizontalGroup(
             sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sidePanelLayout.createSequentialGroup()
-                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(sidePanelLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(berandaBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(kalenderBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(sidePanelLayout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(resetBtn)))
+                .addGap(17, 17, 17)
+                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(berandaBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                    .addComponent(daftarTugasBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(kalenderBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(resetBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(17, 17, 17))
         );
         sidePanelLayout.setVerticalGroup(
@@ -152,14 +150,14 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(berandaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(daftarTugasBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(kalenderBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(resetBtn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(resetBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
 
         basedPanel.setBackground(new java.awt.Color(21, 129, 191));
@@ -202,9 +200,9 @@ public class MainFrame extends javax.swing.JFrame {
         changeMainPanel(new BerandaPanel());        // TODO add your handling code here:
     }//GEN-LAST:event_berandaBtnActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void daftarTugasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarTugasBtnActionPerformed
+        changeMainPanel(new DaftarTugasPanel());        // TODO add your handling code here:
+    }//GEN-LAST:event_daftarTugasBtnActionPerformed
 
     private void kalenderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kalenderBtnActionPerformed
         changeMainPanel(new KalenderPanel());   // TODO add your handling code here:
@@ -269,8 +267,8 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel basedPanel;
     private javax.swing.JButton berandaBtn;
+    private javax.swing.JButton daftarTugasBtn;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton kalenderBtn;
