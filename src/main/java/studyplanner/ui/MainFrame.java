@@ -54,7 +54,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        berandaBtn.setBackground(new java.awt.Color(255, 255, 255));
         berandaBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         berandaBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/home.png"))); // NOI18N
         berandaBtn.setText("Beranda");
@@ -69,7 +68,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        kalenderBtn.setBackground(new java.awt.Color(255, 255, 255));
         kalenderBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         kalenderBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/kalender.png"))); // NOI18N
         kalenderBtn.setText("Kalender Agenda");
@@ -84,7 +82,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/daftar-matkul.png"))); // NOI18N
         jButton3.setText("Daftar Mata kuliah");
@@ -93,8 +90,12 @@ public class MainFrame extends javax.swing.JFrame {
         jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton3.setIconTextGap(10);
         jButton3.setPreferredSize(new java.awt.Dimension(74, 23));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
-        daftarTugasBtn.setBackground(new java.awt.Color(255, 255, 255));
         daftarTugasBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         daftarTugasBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/daftar-tugas.png"))); // NOI18N
         daftarTugasBtn.setText("Daftar Tugas");
@@ -238,6 +239,11 @@ public class MainFrame extends javax.swing.JFrame {
                 javax.swing.JOptionPane.INFORMATION_MESSAGE
         );        // TODO add your handling code here:
     }//GEN-LAST:event_resetBtnActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        changeMainPanel(new daftarMataKuliah()); 
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

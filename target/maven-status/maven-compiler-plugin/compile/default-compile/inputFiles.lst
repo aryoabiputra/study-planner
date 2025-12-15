@@ -1,13 +1,14 @@
-D:\Linux\projek PBO\study-planner\src\main\java\studyplanner\dao\MatkulDAO.java
-D:\Linux\projek PBO\study-planner\src\main\java\studyplanner\dao\TugasDAO.java
-D:\Linux\projek PBO\study-planner\src\main\java\studyplanner\database\DataBase.java
-D:\Linux\projek PBO\study-planner\src\main\java\studyplanner\database\DatabaseMigration.java
-D:\Linux\projek PBO\study-planner\src\main\java\studyplanner\database\InitDatabase.java
-D:\Linux\projek PBO\study-planner\src\main\java\studyplanner\Main.java
-D:\Linux\projek PBO\study-planner\src\main\java\studyplanner\model\Matkul.java
-D:\Linux\projek PBO\study-planner\src\main\java\studyplanner\model\Tugas.java
-D:\Linux\projek PBO\study-planner\src\main\java\studyplanner\ui\BerandaPanel.java
-D:\Linux\projek PBO\study-planner\src\main\java\studyplanner\ui\DaftarTugasPanel.java
-D:\Linux\projek PBO\study-planner\src\main\java\studyplanner\ui\KalenderPanel.java
-D:\Linux\projek PBO\study-planner\src\main\java\studyplanner\ui\MainFrame.java
-D:\Linux\projek PBO\study-planner\src\main\java\studyplanner\ui\TugasCardPanel.java
+D:\study-planner\study-planner\src\main\java\studyplanner\dao\MatkulDAO.java
+D:\study-planner\study-planner\src\main\java\studyplanner\dao\TugasDAO.java
+D:\study-planner\study-planner\src\main\java\studyplanner\database\DataBase.java
+D:\study-planner\study-planner\src\main\java\studyplanner\database\DatabaseMigration.java
+D:\study-planner\study-planner\src\main\java\studyplanner\database\InitDatabase.java
+D:\study-planner\study-planner\src\main\java\studyplanner\Main.java
+D:\study-planner\study-planner\src\main\java\studyplanner\model\Matkul.java
+D:\study-planner\study-planner\src\main\java\studyplanner\model\Tugas.java
+D:\study-planner\study-planner\src\main\java\studyplanner\ui\BerandaPanel.java
+D:\study-planner\study-planner\src\main\java\studyplanner\ui\daftarMataKuliah.java
+D:\study-planner\study-planner\src\main\java\studyplanner\ui\DaftarTugasPanel.java
+D:\study-planner\study-planner\src\main\java\studyplanner\ui\KalenderPanel.java
+D:\study-planner\study-planner\src\main\java\studyplanner\ui\MainFrame.java
+D:\study-planner\study-planner\src\main\java\studyplanner\ui\TugasCardPanel.java
